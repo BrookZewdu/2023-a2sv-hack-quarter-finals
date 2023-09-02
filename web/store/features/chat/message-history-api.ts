@@ -11,7 +11,6 @@ export const messageApi = createApi({
         const { userMessage, chatHistory } = params;
         let url = "/chatbot/chat";
 
-
         const body = params;
 
         return {
@@ -24,12 +23,4 @@ export const messageApi = createApi({
   }),
 });
 
-export const { useGetMessagesQuery} = messageApi;
-
-
-
-
-
-
-
-  
+export const { useGetMessagesQuery } = messageApi;
