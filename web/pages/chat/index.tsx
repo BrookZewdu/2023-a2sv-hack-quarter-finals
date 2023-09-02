@@ -5,10 +5,27 @@ import { FC } from "react";
 import ChatCard from "@/component/chatbot/ChatCard";
 import Chat from "@/component/chat/Chat";
 import ChatInput from "@/component/chatbot/ChatInput";
-
+import { useGetMessagesQuery } from "@/store/features/chat/message-history-api";
+interface message {
+  role: string;
+  content: string;
+}
 const Index: FC = () => {
+  const message = {
+    userMessage: "How do I get my ID from the kebele?",
+    chatHistory: [
+      {
+        role: "assistant",
+        content:
+          "You are very experienced assistant that gives out really concise steps on the proceeding of Ethiopian kebele institustions. The lowest level of local government with limited autonomy there are the kebeles. They are at the neighbourhood level and are the primary contact for most citizens living in Ethiopia. Their administrative unit consists of an elected council, a cabinet (executive committee), a social court and the development and security staff. Kebeles are accountable to their woreda councils and are typically responsible for providing basic education, primary health care, agriculture, water, and rural roads. The kebeles are headed by cadres loyal to the political coalition who see the people's everyday lives. Therefore, they are also excellent for observing movements undesirable for the central government.",
+      },
+    ],
+  };
+  const { data: messages, isLoading, isError } = useGetMessagesQuery(message);
+  console.log("here -------------<>>>>", messages);
+
   return (
-    <div className=" relative bg-white ">
+    <div className="relative bg-white">
       <div className="">
         <div className="flex flex-col mb-16 ">
           <div className="flex-grow">
@@ -32,17 +49,26 @@ const Index: FC = () => {
               </div>
               <div className="flex flex-wrap justify-center">
                 <div className="w-1/4 bg-gray-200 rounded-lg m-8 mb-0 p-6 pb-1">
-                  <ChatCard />
+                  <ChatCard content={""} />
                 </div>
                 <div className="w-1/4 bg-gray-200 rounded-lg m-8 p-6 mb-0 pb-1">
-                  <ChatCard />
+                  <ChatCard content={""} />
                 </div>
                 <div className="w-1/4 bg-gray-200 rounded-lg m-8 p-6 mb-0 pb-1">
-                  <ChatCard />
+                  <ChatCard content={""} />
                 </div>
               </div>
             </div>
           </div>
+        </div>
+
+        <div>
+          {messages.chatHistory.map((message: message) => (
+            // <div key={message.role}>
+            //   <ChatCard content={message.content} />
+            // </div>
+            <div>{message.content}</div>
+          ))}
         </div>
       </div>
       <Chat />
