@@ -22,7 +22,7 @@ const Index: FC = () => {
     ],
   };
   const { data: messages, isLoading, isError } = useGetMessagesQuery(message);
-  console.log("here -------------<>>>>", messages);
+  
 
   return (
     <div className="relative bg-white">

@@ -2,10 +2,10 @@ import React, { useState, useRef, useEffect } from "react";
 import Icon from "@mdi/react";
 import { mdiPlus, mdiSend } from "@mdi/js";
 
-type SetStateFunction<T> = React.Dispatch<React.SetStateAction<T>>;
-type ChatProp = {
-  setLoading: SetStateFunction<boolean>;
-};
+// type SetStateFunction<T> = React.Dispatch<React.SetStateAction<T>>;
+// type ChatProp = {
+//   setLoading: SetStateFunction<boolean>;
+// };
 const Chat: React.FC = () => {
   return (
     <footer> 
