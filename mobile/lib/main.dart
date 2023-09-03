@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/features/chat/presentation/screen/firtScreen.dart';
 import 'package:flutter_application_1/features/chat/presentation/screen/landing%20page.dart';
+import 'package:flutter_application_1/features/chat/presentation/screen/x.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +34,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ChatPage(),
+      home: ChatPage(
+        chatMessages: ["hjkjkjhjk"],
+      ),
     );
   }
 }

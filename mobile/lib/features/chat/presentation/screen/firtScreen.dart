@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
 class FirstPage extends StatelessWidget {
+  /// The list of chat messages to display.
+  int index;
+
+  /// Constructs a `ChatResponseScreen` with the provided [chatMessages].
+  FirstPage({super.key, required this.index});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
